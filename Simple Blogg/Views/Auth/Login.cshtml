@@ -1,19 +1,9 @@
-﻿
-@{
-    Layout = null;
+﻿@{ 
+    ViewBag.Title = "Login Page";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
-</head>
-<body>
-    <div> 
-        <h1>Login Page</h1>
-        @Html.RouteLink("Click here","Home") to login!
-    </div>
-</body>
-</html>
+<h1>Welcome to our Login Page</h1>
+<form method="post">
+      <input type="text" name="Username"/>
+        <input type="text" name="Password"/>
+        <input type="submit" value="Login" />
+    </form>

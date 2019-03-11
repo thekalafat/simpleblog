@@ -6,12 +6,14 @@ using System.Web.Mvc;
 
 namespace Simple_Blogg.Areas.AdminAreaRegistration.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class PostsController : Controller
     {
+
         // GET: AdminAreaRegistration/Posts
         public ActionResult Index()
         {
-            return Content("posts controller");
+            return Content("Admin Posts");
         }
     }
 }

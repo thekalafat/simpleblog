@@ -93,22 +93,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\AdminAreaRegistration\AdminAreaRegistrationAreaRegistration.cs" />
-    <Compile Include="Areas\AdminAreaRegistration\Controllers\PostsController.cs" />
-    <Compile Include="Areas\AdminAreaRegistration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistrationAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Auth.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Areas\AdminAreaRegistration\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="packages.config" />
-    <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,10 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\AdminAreaRegistration\Models\" />
-    <Folder Include="Areas\AdminAreaRegistration\Views\Posts\" />
-    <Folder Include="Areas\AdminAreaRegistration\Views\Shared\" />
-    <Folder Include="Areas\AdminAreaRegistration\Views\Users\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Posts\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Users\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>

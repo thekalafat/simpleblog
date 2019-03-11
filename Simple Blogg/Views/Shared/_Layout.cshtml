@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Simple Blog;</title>
+</head>
+<body>
+    <header>
+
+        <h1>
+            Simple Blog
+        </h1>
+            <a href="@Url.RouteUrl( "Login")">Login</a>
+            <a href="@Url.RouteUrl("Home")">Simple Blog</a>
+      
+    </header>
+    <img src="https://www.trakya.edu.tr/admin/tools/theme/www_v2/images/logo/tr/logo.png" />
+         
+        
+    @RenderBody()
+    <p>
+        <u>This Content comes from Layout</u>
+    </p>
+
+    
+      &copy; @DateTime.Now.Year
+        @RenderSection("scripts",false)
+    
+</body>
+</html>
