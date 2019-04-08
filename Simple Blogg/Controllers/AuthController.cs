@@ -4,20 +4,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Simple_Blogg.Controllers
 {
     public class AuthController : Controller
     {
-        // GET: Auth
-        public ActionResult Login()
+        public ActionResult logout()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("home");
         }
         [HttpPost]
-        public ActionResult Login(AuthLogin form)
+        public ActionResult Login(AuthLogin Form,string returnUrl)
         {
-            return Content("Hi there "+ form.Username);
+            if (!ModelState.IsValid)
+            {
+                return View(Form);
+            }
+            FormsAuthentication.SetAuthCookie(Form.Username, true);
+            if (!string.IsNullOrWhiteSpace(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+                return RedirectToRoute("home");
         }
     }
 }
+        //[HttpPost]
+        //public ActionResult Login(AuthLogin formData)
+        //{
+        //    if(!ModelState.IsValid)
+        //    {
+        //        return View();
+        //    };
+        //    if (formData.Username)
+        //}
+    //}
+//}

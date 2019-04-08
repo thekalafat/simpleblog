@@ -1,10 +1,12 @@
-﻿@model Simple_Blogg.ViewModels.AuthLogin
-@{ 
+﻿@model Simple_Blogg.ViewModels.AuthLogin        
+@{                                             
     ViewBag.Title = "Login Page";
 }
 <h1>Welcome to our Login Page</h1>
+
 @using (Html.BeginForm())
 {
+
 <div>
     @Html.LabelFor(x => x.Username)
     @Html.EditorFor(x => x.Username)
@@ -15,5 +17,7 @@
 </div>
 
     <input type ="submit" value="Login"/> 
+    //@Model->controllerdan view'a bir veri aktarılıyorsa kullanılır
+    //@model sayfanın en yukarısında olur bu viewın hangi viewmodel kullanacagını gösterir
 }
 

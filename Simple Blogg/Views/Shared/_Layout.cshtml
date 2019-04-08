@@ -12,6 +12,24 @@
 </head>
 <body>
     <header>
+        @Html.RouteLink("Home Page","home") @Html.RouteLink("Login","login")
+        @if(User.Identity.IsAuthenticated)
+        {
+            <p>Welcome Back @User.Identity.Name</p>
+            <a href="@Url.RouteUrl("logout")">Logout</a>
+
+            @if (User.IsInRole("admin"))
+            {
+                <a href="@Url.RouteUrl("Index","Posts",new {area="admin"})">View Posts in admin</a>
+
+            }
+        }
+        else
+        {
+            <a href="@Url.RouteUrl("login")">Login</a>
+        }
+    </header>
+    <header>
 
         <h1>
             Simple Blog
