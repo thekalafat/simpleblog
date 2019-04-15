@@ -21,7 +21,7 @@
 
             if (User.IsInRole("admin"))
             {
-                <a href="@Url.RouteUrl("Index","Posts",new {area="admin"})">View Posts in admin</a>
+                <a href="@Url.Action("Index","Posts",new {area="admin"})">View Posts in admin</a>
 
             }
         }

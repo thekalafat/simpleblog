@@ -10,11 +10,11 @@ namespace Simple_Blogg.Controllers
 {
     public class AuthController : Controller
     {
-        public ActionResult logout()
+        public ActionResult Login()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToRoute("home");
+            return View();
         }
+      
         [HttpPost]
         public ActionResult Login(AuthLogin Form,string returnUrl)
         {
@@ -23,6 +23,7 @@ namespace Simple_Blogg.Controllers
                 return View(Form);
             }
             FormsAuthentication.SetAuthCookie(Form.Username, true);
+
             if (!string.IsNullOrWhiteSpace(returnUrl))
             {
                 return Redirect(returnUrl);
@@ -30,16 +31,11 @@ namespace Simple_Blogg.Controllers
             else
                 return RedirectToRoute("home");
         }
+        public ActionResult logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("home");
+        }
     }
 }
-        //[HttpPost]
-        //public ActionResult Login(AuthLogin formData)
-        //{
-        //    if(!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    };
-        //    if (formData.Username)
-        //}
-    //}
-//}
+ 
