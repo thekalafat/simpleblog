@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Web.Optimization;
 @{
     Layout = null;
 }
@@ -8,7 +8,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - Simple Blog;</title>
+    <title>Posts - Simple Blog;</title>
+    <link href="/styles" rel="stylesheet"/>
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@
             <p>Welcome Back @User.Identity.Name</p>
             <a href="@Url.RouteUrl("logout")">Logout</a>
 
-            @if (User.IsInRole("admin"))
+            if (User.IsInRole("admin"))
             {
                 <a href="@Url.RouteUrl("Index","Posts",new {area="admin"})">View Posts in admin</a>
 
@@ -40,7 +41,9 @@
     </header>
     <img src="https://www.trakya.edu.tr/admin/tools/theme/www_v2/images/logo/tr/logo.png" />
          
-        
+        @Scripts.Render("~/scripts")
+        <script src="/scripts?v=70TyJkvkIQ65qcBZlpzyp8m4HUEPNrze_ZUkY761VxA1"></script>
+
     @RenderBody()
     <p>
         <u>This Content comes from Layout</u>
