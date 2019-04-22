@@ -11,6 +11,8 @@ namespace SimpleBlogg.Migrations
     {
         public override void Down()
         {
+            Delete.Table("role_users");
+            Delete.Table("roles");
             Delete.Table("users");
 
         }
@@ -23,6 +25,13 @@ namespace SimpleBlogg.Migrations
                 .WithColumn("email").AsString(256)
                 .WithColumn("password_hash").AsString(128);
 
+            Create.Table("roles")
+                .WithColumn("id").AsInt32().Identity().PrimaryKey()
+                .WithColumn("name").AsString(128);
+
+            Create.Table("role_users")
+                .WithColumn("user_id").AsInt32().ForeignKey("users", "id")
+                .WithColumn("role_id").AsInt32().ForeignKey("roles", "id");
         }
     }
 }
